@@ -1,5 +1,8 @@
 # Pivotly — AI Transformation & Solution Advisor
 
+**🔗 Live demo: [pivotly-psi.vercel.app](https://pivotly-psi.vercel.app)**
+*(Backend runs on Render's free tier — the first request after idle time can take ~30-50s to wake up.)*
+
 Pivotly takes a real-world business problem and turns it into a scored,
 architected, and financially quantified AI transformation recommendation —
 the kind of workflow an AI solution advisor, presales engineer, or
