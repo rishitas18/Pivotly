@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* Warm, editorial palette — cream base, white "paper" cards, near-black
+     type, periwinkle-blue as the primary interactive accent, with forest
+     green / rust orange / maroon doing the work of a status system. */
+  --color-bg: #f7f1e4;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fbf7ee;
+  --color-ink: #14120f;
+  --color-ink-soft: #2a271f;
+  --color-text: #3a362e;
+  --color-muted: #8c8471;
+  --color-border: #e7dfcb;
+  --color-border-strong: #d6c9ac;
+
+  --color-accent: #7c86f0;
+  --color-accent-strong: #5d67e0;
+  --color-accent-soft: #ececfc;
+  --color-accent-ink: #2a2f78;
+
+  --color-status-green: #1f4d3a;
+  --color-status-green-soft: #e7f1eb;
+  --color-status-amber: #bd5b21;
+  --color-status-amber-soft: #fbeee3;
+  --color-status-red: #8b2a3b;
+  --color-status-red-soft: #f7e9ec;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-ink);
+}
+
+/* Subtle, restrained motion — entrance transitions and smooth number
+   updates. No glow effects, no continuous/looping animation. */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out both;
+}
+
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+.stagger-4 {
+  animation-delay: 0.2s;
+}
+
+/* Click-triggered background burst — see ClickBurst.tsx */
+@keyframes burst-out {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(0.6) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) scale(1) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.burst-particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: burst-out 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
